@@ -31,7 +31,13 @@ const InfoItem = ({ icon, label, value }: InfoItemProps) => {
 const AboutSection = ({ profile }: Props) => {
   const infoItems = [
     { icon: <MapPin size={18} />, label: 'Location', value: profile.location },
-    { icon: <Calendar size={18} />, label: 'Date of Birth', value: profile.dateOfBirth },
+    {
+      icon: <Calendar size={18} />,
+      label: 'Date of Birth',
+      value: profile.dateOfBirth
+        ? new Date(profile.dateOfBirth).toLocaleDateString('en-GB', { day: '2-digit', month: 'short', year: 'numeric' })
+        : 'N/A',
+    },
     { icon: <GraduationCap size={18} />, label: 'Education', value: profile.education || 'N/A' },
     { icon: <Award size={18} />, label: 'Major', value: 'E-Commerce' },
   ];
@@ -44,12 +50,18 @@ const AboutSection = ({ profile }: Props) => {
             <div className="relative shrink-0">
               <div className="w-24 h-24 rounded-full bg-[#E1FF00] absolute -top-1.5 -left-1.5 z-0" />
               <div className="relative z-10 w-24 h-24 rounded-full bg-slate-900 border-4 border-[#113af1] overflow-hidden">
-                <Image src={profile.avatar || '/avatar.webp'} alt={`Avatar of ${profile.name}`} fill sizes="96px" className="object-cover" />
+                <Image
+                  src={profile.avatar || '/avatar.webp'}
+                  alt={`Avatar of ${profile.firstName + ' ' + profile.lastName}`}
+                  fill
+                  sizes="96px"
+                  className="object-cover"
+                />
               </div>
             </div>
             <div>
               <div className="text-xs lg:text-sm font-bold tracking-widest text-[#E1FF00] mb-1">BIOGRAPHY</div>
-              <h2 className="text-3xl lg:text-4xl font-black mb-2">{profile.name}</h2>
+              <h2 className="text-3xl lg:text-4xl font-black mb-2">{profile.firstName + ' ' + profile.lastName}</h2>
               <p className="text-sm lg:text-base text-white/90 leading-relaxed max-w-lg">{profile.bio}</p>
             </div>
           </div>

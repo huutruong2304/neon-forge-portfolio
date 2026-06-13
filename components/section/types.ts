@@ -8,15 +8,22 @@ export type SocialLinks = {
 };
 
 export type Profile = {
-  name: string;
+  firstName: string;
+  lastName: string;
   title: string;
   bio: string;
+  introduction: string;
   dateOfBirth: string;
   location: string;
   email: string;
   phone: string;
   avatar?: string;
   education?: string;
+};
+
+export type Highlight = {
+  yearsOfExperience?: number;
+  awards?: string;
 };
 
 export type SkillItem = {

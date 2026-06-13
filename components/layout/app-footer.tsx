@@ -1,6 +1,7 @@
 import { Mail, Phone } from 'lucide-react';
 import React from 'react';
 import GlassCard from '../shared/glass-card';
+import { Profile } from '../section/types';
 
 type Props = {
   socialLinks: {
@@ -9,11 +10,7 @@ type Props = {
     youtube: string;
     email: string;
   };
-  profile: {
-    name: string;
-    email: string;
-    phone: string;
-  };
+  profile: Profile;
 };
 
 const AppFooter = ({ socialLinks, profile }: Props) => {
@@ -87,7 +84,7 @@ const AppFooter = ({ socialLinks, profile }: Props) => {
         </GlassCard>
       </div>
       <div className="text-center text-xs lg:text-sm text-white/50 mt-8">
-        © {new Date().getFullYear()} {profile.name}. All rights reserved.
+        © {new Date().getFullYear()} {profile.firstName + ' ' + profile.lastName}. All rights reserved.
       </div>
     </footer>
   );

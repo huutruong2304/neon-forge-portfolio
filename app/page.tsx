@@ -7,7 +7,7 @@ import ExperienceSection from '../components/section/experience-section';
 import HeroSection from '../components/section/hero-section';
 import ProjectsSection from '../components/section/projects-section';
 import SkillsSection from '../components/section/skills-section';
-import type { Experience, Project, Profile, SkillGroup, SocialLinks } from '../components/section/types';
+import type { Experience, Project, Profile, SkillGroup, SocialLinks, Highlight } from '../components/section/types';
 import AppFooter from '@/components/layout/app-footer';
 import ScrollToTopButton from '@/components/shared/scroll-to-top-button';
 import portfolio from '@/data/portfolio.json';
@@ -31,6 +31,7 @@ type PortfolioData = {
   skills: PortfolioSkillGroup[];
   experiences: Experience[];
   projects: Project[];
+  highlight: Highlight;
 };
 
 export default function App() {
@@ -53,6 +54,11 @@ export default function App() {
   const socialLinks: SocialLinks = {
     ...data.socialLinks,
     email: data.socialLinks.email.startsWith('mailto:') ? data.socialLinks.email : `mailto:${data.socialLinks.email}`,
+  };
+
+  const highlight: Highlight = {
+    yearsOfExperience: data.highlight?.yearsOfExperience,
+    awards: data.highlight?.awards,
   };
 
   const skillIconByType: Record<SkillType, ReactNode> = {
@@ -81,7 +87,7 @@ export default function App() {
 
       <div className="max-w-7xl mx-auto px-6 py-6 relative z-10">
         <AppHeader socialLinks={socialLinks} />
-        <HeroSection profile={profile} socialLinks={socialLinks} />
+        <HeroSection profile={profile} socialLinks={socialLinks} highlight={highlight} />
         <AboutSection profile={profile} />
         <SkillsSection skills={skills} />
         <ExperienceSection experiences={experiences} />
