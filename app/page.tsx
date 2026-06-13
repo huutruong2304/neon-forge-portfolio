@@ -9,6 +9,7 @@ import ProjectsSection from '../components/section/projects-section';
 import SkillsSection from '../components/section/skills-section';
 import type { Experience, Project, Profile, SkillGroup, SocialLinks } from '../components/section/types';
 import AppFooter from '@/components/layout/app-footer';
+import ScrollToTopButton from '@/components/shared/scroll-to-top-button';
 import portfolio from '@/data/portfolio.json';
 
 type SkillType = 'frontend' | 'ui-styling' | 'backend-api';
@@ -88,6 +89,8 @@ export default function App() {
         <ContactSection profile={profile} socialLinks={socialLinks} />
         <AppFooter profile={profile} socialLinks={socialLinks} />
       </div>
+
+      <ScrollToTopButton />
     </div>
   );
 }
