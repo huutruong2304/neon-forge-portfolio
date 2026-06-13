@@ -15,6 +15,8 @@ export type Profile = {
   location: string;
   email: string;
   phone: string;
+  avatar?: string;
+  education?: string;
 };
 
 export type SkillItem = {

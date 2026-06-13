@@ -58,7 +58,7 @@ const HeroSection = ({ profile, socialLinks }: Props) => {
 
       <div className="relative h-[500px] w-full mt-12 lg:mt-0 select-none">
         <Image
-          src="/avatar.webp"
+          src={profile.avatar || '/avatar.webp'}
           alt={`Avatar of ${profile.name}`}
           fill
           priority

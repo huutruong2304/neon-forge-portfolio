@@ -15,7 +15,7 @@ type InfoItemProps = {
 
 const InfoItem = ({ icon, label, value }: InfoItemProps) => {
   return (
-    <div className="flex items-center gap-3">
+    <div className="flex items-start gap-3">
       <div className="w-10 h-10 aspect-square rounded-2xl bg-white/5 border border-white/10 flex items-center justify-center text-[#E1FF00]">
         {icon}
       </div>
@@ -35,7 +35,7 @@ const AboutSection = ({ profile }: Props) => {
           <div className="relative shrink-0">
             <div className="w-24 h-24 rounded-full bg-[#E1FF00] absolute -top-1.5 -left-1.5 z-0" />
             <div className="relative z-10 w-24 h-24 rounded-full bg-slate-900 border-4 border-[#113af1] overflow-hidden">
-              <Image src="/avatar.webp" alt={`Avatar of ${profile.name}`} fill sizes="96px" className="object-cover" />
+              <Image src={profile.avatar || '/avatar.webp'} alt={`Avatar of ${profile.name}`} fill sizes="96px" className="object-cover" />
             </div>
           </div>
           <div>
@@ -47,9 +47,9 @@ const AboutSection = ({ profile }: Props) => {
 
         <div className="w-full lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-4 shrink-0">
           <InfoItem icon={<MapPin size={18} />} label="Location" value={profile.location} />
-          <InfoItem icon={<Calendar size={18} />} label="Date of Birth" value="" />
-          <InfoItem icon={<GraduationCap size={18} />} label="Education" value="" />
-          <InfoItem icon={<Award size={18} />} label="Major" value="" />
+          <InfoItem icon={<Calendar size={18} />} label="Date of Birth" value={profile.dateOfBirth} />
+          <InfoItem icon={<GraduationCap size={18} />} label="Education" value={profile.education || 'N/A'} />
+          <InfoItem icon={<Award size={18} />} label="Major" value="E-Commerce" />
         </div>
       </GlassCard>
     </section>

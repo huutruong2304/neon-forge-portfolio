@@ -1,0 +1,213 @@
+{
+    "profile": {
+        "name": "NGUYEN VIET NAM",
+        "title": "Full Stack Developer",
+        "bio": "Full Stack Developer with 5+ years of experience building scalable web products with React, Next.js, TypeScript, API integrations and backend services using NestJS.",
+        "dateOfBirth": "1998-11-12",
+        "location": "Ho Chi Minh City, Vietnam",
+        "email": "vietnam.nguyen.dev@gmail.com",
+        "phone": "0905123456",
+        "avatar": "https://placehold.co/900x1100/png?text=NGUYEN+VIET+NAM"
+    },
+    "socialLinks": {
+        "github": "https://github.com/nguyenvietnamdev",
+        "linkedin": "https://www.linkedin.com/in/nguyenvietnamdev/",
+        "youtube": "https://www.youtube.com/@nguyenvietnamdev",
+        "email": "mailto:vietnam.nguyen.dev@gmail.com"
+    },
+    "skills": [
+        {
+            "type": "frontend",
+            "category": "Frontend",
+            "items": [
+                {
+                    "name": "ReactJS",
+                    "level": 95
+                },
+                {
+                    "name": "NextJS",
+                    "level": 90
+                },
+                {
+                    "name": "Redux Toolkit / Saga / Thunk",
+                    "level": 85
+                },
+                {
+                    "name": "React Native",
+                    "level": 75
+                }
+            ]
+        },
+        {
+            "type": "ui-styling",
+            "category": "UI & Styling",
+            "items": [
+                {
+                    "name": "HTML5 / CSS3 / SCSS",
+                    "level": 90
+                },
+                {
+                    "name": "TailwindCSS / ShadCN",
+                    "level": 85
+                },
+                {
+                    "name": "MUI / Ant Design / ChakraUI",
+                    "level": 80
+                },
+                {
+                    "name": "Bootstrap",
+                    "level": 75
+                }
+            ]
+        },
+        {
+            "type": "backend-api",
+            "category": "Backend & API",
+            "items": [
+                {
+                    "name": "NestJS",
+                    "level": 75
+                },
+                {
+                    "name": "REST APIs",
+                    "level": 85
+                },
+                {
+                    "name": "WebSocket",
+                    "level": 70
+                },
+                {
+                    "name": "PostgreSQL",
+                    "level": 70
+                }
+            ]
+        }
+    ],
+    "experiences": [
+        {
+            "company": "FPT Software",
+            "position": "Full Stack Developer",
+            "startDate": "2022/02",
+            "endDate": "Present",
+            "description": [
+                "Developed and maintained enterprise web applications using ReactJS, NextJS, TypeScript and NestJS.",
+                "Worked in Agile/Scrum environments and participated in daily stand-up meetings.",
+                "Analyzed requirements, implemented new features, fixed bugs and optimized system performance.",
+                "Collaborated with team members and supported troubleshooting activities."
+            ]
+        },
+        {
+            "company": "S3 Corp",
+            "position": "Front End Developer",
+            "startDate": "2020/06",
+            "endDate": "2022/02",
+            "description": [
+                "Developed frontend features for device management and hardware control applications.",
+                "Gathered and clarified requirements directly with customers.",
+                "Fixed UI and system bugs to improve stability and user experience.",
+                "Participated in daily stand-up meetings with customers."
+            ]
+        },
+        {
+            "company": "Freelancer",
+            "position": "Full Stack Developer",
+            "description": [
+                "Designed and developed full stack systems for education, e-commerce and mobile applications.",
+                "Gathered and analyzed client requirements.",
+                "Built responsive user interfaces, backend features and API integrations.",
+                "Fixed bugs and optimized application performance."
+            ]
+        }
+    ],
+    "projects": [
+        {
+            "name": "dethivip.com",
+            "source": "freelance",
+            "domain": "Education",
+            "thumbnail": "https://placehold.co/1200x800/png?text=dethivip.com",
+            "description": "An educational platform providing high school graduation exam materials, mock exams and learning resources for students preparing for the Vietnamese National High School Exam (THPT).",
+            "techStack": [
+                "Next.js",
+                "TypeScript",
+                "TailwindCSS",
+                "PostgreSQL"
+            ],
+            "role": "Full Stack Developer",
+            "demoUrl": "https://dethivip.com",
+            "githubUrl": "",
+            "featured": true
+        },
+        {
+            "name": "anhphibantao.com",
+            "source": "freelance",
+            "domain": "E-commerce",
+            "thumbnail": "https://placehold.co/1200x800/png?text=anhphibantao.com",
+            "description": "An e-commerce website specializing in Apple products, providing a smooth shopping experience and administration dashboard.",
+            "techStack": [
+                "NextJS",
+                "ReactJS",
+                "TypeScript",
+                "TailwindCSS",
+                "NestJS",
+                "ChakraUI"
+            ],
+            "role": "Full Stack Developer",
+            "demoUrl": "https://anhphibantao.com",
+            "githubUrl": "",
+            "featured": true
+        },
+        {
+            "name": "EV Charging Platform",
+            "source": "company",
+            "domain": "Electric Vehicles",
+            "thumbnail": "https://placehold.co/1200x800/png?text=EV+Charging+Platform",
+            "description": "A platform that helps users locate charging stations, schedule charging appointments and complete payments.",
+            "techStack": [
+                "ReactJS",
+                "NestJS",
+                "WebSocket",
+                "PostgreSQL",
+                "Amazon S3"
+            ],
+            "role": "Full Stack Developer",
+            "demoUrl": "",
+            "githubUrl": "",
+            "featured": true
+        },
+        {
+            "name": "SG Smart Attendance",
+            "source": "freelance",
+            "domain": "Workforce Management",
+            "thumbnail": "https://placehold.co/1200x800/png?text=SG+Smart+Attendance",
+            "description": "A mobile attendance management application that enables employees to check in/out and managers to monitor attendance records.",
+            "techStack": [
+                "React Native",
+                "Redux Toolkit",
+                "React Navigation",
+                "Async Storage"
+            ],
+            "role": "Mobile Developer",
+            "demoUrl": "",
+            "githubUrl": "",
+            "featured": true
+        }
+    ],
+    "services": [],
+    "testimonials": [],
+    "certificates": [
+        {
+            "name": "Top 100 FSOFT.GAM 2023 Best Performer",
+            "issuer": "FPT Software",
+            "issueDate": "2023",
+            "credentialUrl": ""
+        }
+    ],
+    "education": [
+        {
+            "school": "University of Science and Technology - The University of Danang",
+            "degree": "Major: Information Technology",
+            "startDate": "2016",
+            "endDate": "2020"
+        }
+    ]
+}

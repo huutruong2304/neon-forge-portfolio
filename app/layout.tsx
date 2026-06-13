@@ -13,7 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Coding With Trường - Portfolio',
+  title: 'Coding With Trường',
   description: 'A showcase of my work and experience as a software developer.',
 };
 
