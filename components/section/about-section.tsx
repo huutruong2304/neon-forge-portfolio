@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { Award, Calendar, GraduationCap, MapPin } from 'lucide-react';
 import GlassCard from '@/components/shared/glass-card';
+import Reveal from '@/components/shared/reveal';
 import type { Profile } from './types';
 
 type Props = {
@@ -28,30 +29,40 @@ const InfoItem = ({ icon, label, value }: InfoItemProps) => {
 };
 
 const AboutSection = ({ profile }: Props) => {
+  const infoItems = [
+    { icon: <MapPin size={18} />, label: 'Location', value: profile.location },
+    { icon: <Calendar size={18} />, label: 'Date of Birth', value: profile.dateOfBirth },
+    { icon: <GraduationCap size={18} />, label: 'Education', value: profile.education || 'N/A' },
+    { icon: <Award size={18} />, label: 'Major', value: 'E-Commerce' },
+  ];
+
   return (
     <section id="about" className="scroll-mt-24">
-      <GlassCard className="p-6 md:p-8 mb-12 flex flex-col lg:flex-row items-center gap-8 relative z-20 rounded-4xl">
-        <div className="flex flex-col sm:flex-row items-center gap-6 flex-1 border-b lg:border-b-0 lg:border-r border-white/15 pb-6 lg:pb-0 lg:pr-8">
-          <div className="relative shrink-0">
-            <div className="w-24 h-24 rounded-full bg-[#E1FF00] absolute -top-1.5 -left-1.5 z-0" />
-            <div className="relative z-10 w-24 h-24 rounded-full bg-slate-900 border-4 border-[#113af1] overflow-hidden">
-              <Image src={profile.avatar || '/avatar.webp'} alt={`Avatar of ${profile.name}`} fill sizes="96px" className="object-cover" />
+      <Reveal>
+        <GlassCard className="p-6 md:p-8 mb-12 flex flex-col lg:flex-row items-center gap-8 relative z-20 rounded-4xl">
+          <div className="flex flex-col sm:flex-row items-center gap-6 flex-1 border-b lg:border-b-0 lg:border-r border-white/15 pb-6 lg:pb-0 lg:pr-8">
+            <div className="relative shrink-0">
+              <div className="w-24 h-24 rounded-full bg-[#E1FF00] absolute -top-1.5 -left-1.5 z-0" />
+              <div className="relative z-10 w-24 h-24 rounded-full bg-slate-900 border-4 border-[#113af1] overflow-hidden">
+                <Image src={profile.avatar || '/avatar.webp'} alt={`Avatar of ${profile.name}`} fill sizes="96px" className="object-cover" />
+              </div>
+            </div>
+            <div>
+              <div className="text-xs lg:text-sm font-bold tracking-widest text-[#E1FF00] mb-1">BIOGRAPHY</div>
+              <h2 className="text-3xl lg:text-4xl font-black mb-2">{profile.name}</h2>
+              <p className="text-sm lg:text-base text-white/90 leading-relaxed max-w-lg">{profile.bio}</p>
             </div>
           </div>
-          <div>
-            <div className="text-xs lg:text-sm font-bold tracking-widest text-[#E1FF00] mb-1">BIOGRAPHY</div>
-            <h2 className="text-3xl lg:text-4xl font-black mb-2">{profile.name}</h2>
-            <p className="text-sm lg:text-base text-white/90 leading-relaxed max-w-lg">{profile.bio}</p>
-          </div>
-        </div>
 
-        <div className="w-full lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-4 shrink-0">
-          <InfoItem icon={<MapPin size={18} />} label="Location" value={profile.location} />
-          <InfoItem icon={<Calendar size={18} />} label="Date of Birth" value={profile.dateOfBirth} />
-          <InfoItem icon={<GraduationCap size={18} />} label="Education" value={profile.education || 'N/A'} />
-          <InfoItem icon={<Award size={18} />} label="Major" value="E-Commerce" />
-        </div>
-      </GlassCard>
+          <div className="w-full lg:w-1/2 grid grid-cols-1 sm:grid-cols-2 gap-4 shrink-0">
+            {infoItems.map((item, index) => (
+              <Reveal key={item.label} delay={90 + index * 70}>
+                <InfoItem icon={item.icon} label={item.label} value={item.value} />
+              </Reveal>
+            ))}
+          </div>
+        </GlassCard>
+      </Reveal>
     </section>
   );
 };

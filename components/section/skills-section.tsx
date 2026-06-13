@@ -1,5 +1,6 @@
 import { Cpu } from 'lucide-react';
 import GlassCard from '@/components/shared/glass-card';
+import Reveal from '@/components/shared/reveal';
 import SectionHeading from './section-heading';
 import type { SkillGroup } from './types';
 
@@ -36,10 +37,14 @@ const SkillCard = ({ skillGroup }: { skillGroup: SkillGroup }) => {
 const SkillsSection = ({ skills }: Props) => {
   return (
     <section id="skills" className="scroll-mt-24 mb-16">
-      <SectionHeading icon={<Cpu size={18} className="text-[#E1FF00]" />} title="Professional Skills" />
+      <Reveal>
+        <SectionHeading icon={<Cpu size={18} className="text-[#E1FF00]" />} title="Professional Skills" />
+      </Reveal>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-        {skills.map((skillGroup) => (
-          <SkillCard key={skillGroup.category} skillGroup={skillGroup} />
+        {skills.map((skillGroup, index) => (
+          <Reveal key={skillGroup.category} delay={index * 80}>
+            <SkillCard skillGroup={skillGroup} />
+          </Reveal>
         ))}
       </div>
     </section>

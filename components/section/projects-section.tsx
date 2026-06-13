@@ -4,6 +4,7 @@ import Image from 'next/image';
 import { ExternalLink, Monitor } from 'lucide-react';
 import { useState } from 'react';
 import GlassCard from '@/components/shared/glass-card';
+import Reveal from '@/components/shared/reveal';
 import SectionHeading from './section-heading';
 import type { Project } from './types';
 
@@ -103,7 +104,9 @@ const ProjectsSection = ({ projects }: Props) => {
   return (
     <section id="projects" className="scroll-mt-24 mb-16">
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-8">
-        <SectionHeading icon={<Monitor size={20} className="text-[#E1FF00]" />} title="Featured Projects" className="mb-0" />
+        <Reveal>
+          <SectionHeading icon={<Monitor size={20} className="text-[#E1FF00]" />} title="Featured Projects" className="mb-0" />
+        </Reveal>
 
         <div className="flex bg-white/10 p-1.5 rounded-full border border-white/10 self-start">
           <FilterButton label="All" value="all" currentValue={projectFilter} onChange={setProjectFilter} />
@@ -113,8 +116,10 @@ const ProjectsSection = ({ projects }: Props) => {
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-        {filteredProjects.map((project) => (
-          <ProjectCard key={project.name} project={project} />
+        {filteredProjects.map((project, index) => (
+          <Reveal key={project.name} delay={index * 90} className="flex">
+            <ProjectCard project={project} />
+          </Reveal>
         ))}
       </div>
     </section>

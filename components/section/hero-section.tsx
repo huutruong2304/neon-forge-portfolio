@@ -1,6 +1,7 @@
 import Image from 'next/image';
 import { Award, Code, Star } from 'lucide-react';
 import GlassCard from '@/components/shared/glass-card';
+import Reveal from '@/components/shared/reveal';
 import type { Profile, SocialLinks } from './types';
 
 type Props = {
@@ -11,7 +12,7 @@ type Props = {
 const HeroSection = ({ profile, socialLinks }: Props) => {
   return (
     <section className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
-      <div className="flex flex-col items-start">
+      <Reveal className="flex flex-col items-start">
         <div className="flex items-center gap-2 mb-4 text-xs font-bold uppercase tracking-widest bg-white/10 px-4 py-2 rounded-full border border-white/10">
           HELLO, I&apos;M TRUONG <span className="text-sm animate-bounce">👋</span>
         </div>
@@ -54,9 +55,9 @@ const HeroSection = ({ profile, socialLinks }: Props) => {
             GITHUB PROFILE
           </a>
         </div>
-      </div>
+      </Reveal>
 
-      <div className="relative h-[500px] w-full mt-12 lg:mt-0 select-none">
+      <Reveal delay={120} className="relative h-[500px] w-full mt-12 lg:mt-0 select-none">
         <Image
           src={profile.avatar || '/avatar.webp'}
           alt={`Avatar of ${profile.name}`}
@@ -86,7 +87,7 @@ const HeroSection = ({ profile, socialLinks }: Props) => {
           </div>
           <div className="font-extrabold leading-tight text-sm lg:text-base tracking-wide text-white">Top 100 FPT SOFTWARE GAM 2023</div>
         </GlassCard>
-      </div>
+      </Reveal>
     </section>
   );
 };

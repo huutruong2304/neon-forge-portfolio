@@ -1,5 +1,6 @@
 import { Briefcase } from 'lucide-react';
 import GlassCard from '@/components/shared/glass-card';
+import Reveal from '@/components/shared/reveal';
 import SectionHeading from './section-heading';
 import type { Experience } from './types';
 
@@ -40,11 +41,15 @@ const ExperienceCard = ({ experience }: { experience: Experience }) => {
 const ExperienceSection = ({ experiences }: Props) => {
   return (
     <section id="experience" className="scroll-mt-24 mb-16">
-      <SectionHeading icon={<Briefcase size={18} className="text-[#E1FF00]" />} title="Work Experience" />
+      <Reveal>
+        <SectionHeading icon={<Briefcase size={18} className="text-[#E1FF00]" />} title="Work Experience" />
+      </Reveal>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {experiences.map((experience) => (
-          <ExperienceCard key={experience.company} experience={experience} />
+        {experiences.map((experience, index) => (
+          <Reveal key={experience.company} delay={index * 90} className="flex">
+            <ExperienceCard experience={experience} />
+          </Reveal>
         ))}
       </div>
     </section>
