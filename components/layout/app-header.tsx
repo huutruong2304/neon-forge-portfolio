@@ -11,7 +11,9 @@ const AppHeader = ({ socialLinks }: Props) => {
   return (
     <nav className="flex items-center justify-between mb-16 sticky top-0 z-30 py-3 bg-[#113af1]/85 backdrop-blur-md">
       <div className="flex items-center gap-3">
-        <div className="text-3xl font-black text-[#E1FF00] tracking-tighter bg-white/10 px-3 py-1 rounded-2xl border border-white/20">TRUONGNH9X</div>
+        <div className="text-3xl font-black text-[#E1FF00] tracking-tighter bg-white/10 px-3 py-1 rounded-2xl border border-white/20">
+          {process.env.NEXT_PUBLIC_SITE_NAME}
+        </div>
       </div>
 
       <div className="hidden lg:flex items-center gap-8 text-sm lg:text-base font-semibold">
