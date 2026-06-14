@@ -1,14 +1,25 @@
 // app/api/contact/route.ts
 import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
+import { contactFormSchema } from '@/lib/schemas/contact';
 
 export async function POST(req: Request) {
   try {
-    const { name, email, message, submittedAt, source } = await req.json();
+    const body = await req.json();
 
-    if (!name || !email || !message) {
-      return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
+    // Validate request body with Zod
+    const validationResult = contactFormSchema.safeParse(body);
+    if (!validationResult.success) {
+      return NextResponse.json(
+        {
+          error: 'Validation failed',
+          details: validationResult.error.issues,
+        },
+        { status: 400 },
+      );
     }
+
+    const { name, email, message, submittedAt, source } = validationResult.data;
     const { RESEND_API_KEY, CONTACT_EMAIL, MAIL_FROM_NAME, MAIL_FROM_ADDRESS, OWNER_NAME, SITE_NAME, SITE_URL, ENABLE_AUTO_REPLY } = process.env;
 
     if (!RESEND_API_KEY || !CONTACT_EMAIL || !MAIL_FROM_ADDRESS) {
@@ -16,6 +27,8 @@ export async function POST(req: Request) {
     }
 
     const resend = new Resend(RESEND_API_KEY);
+    const submittedAtValue = submittedAt ?? new Date().toISOString();
+    const sourceValue = source ?? SITE_URL ?? 'N/A';
 
     const fromEmail = `${MAIL_FROM_NAME ?? 'Portfolio'} <${MAIL_FROM_ADDRESS}>`;
 
@@ -52,7 +65,7 @@ export async function POST(req: Request) {
           <td style="padding: 4px 12px 4px 0;">
             <strong>Submitted:</strong>
           </td>
-          <td>${new Date(submittedAt).toLocaleString()}</td>
+          <td>${new Date(submittedAtValue).toLocaleString()}</td>
         </tr>
 
         <tr>
@@ -60,8 +73,8 @@ export async function POST(req: Request) {
             <strong>Source:</strong>
           </td>
           <td>
-            <a href="${source}">
-              ${source}
+            <a href="${sourceValue}">
+              ${sourceValue}
             </a>
           </td>
         </tr>
