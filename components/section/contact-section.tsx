@@ -1,16 +1,10 @@
 'use client';
 
-import { ArrowUpRight, Mail, Phone } from 'lucide-react';
+import { ArrowUpRight, Mail } from 'lucide-react';
 import { useState } from 'react';
 import GlassCard from '@/components/shared/glass-card';
 import Reveal from '@/components/shared/reveal';
 import SectionHeading from './section-heading';
-import type { Profile, SocialLinks } from './types';
-
-type Props = {
-  profile: Profile;
-  socialLinks: SocialLinks;
-};
 
 type ContactFormState = {
   name: string;
@@ -19,7 +13,7 @@ type ContactFormState = {
   message: string;
 };
 
-const ContactSection = ({ profile }: Props) => {
+const ContactSection = () => {
   const [contactForm, setContactForm] = useState<ContactFormState>({
     name: '',
     email: '',
@@ -35,21 +29,41 @@ const ContactSection = ({ profile }: Props) => {
     }
   };
 
-  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
 
     if (!contactForm.name || !contactForm.email || !contactForm.message) {
       setContactStatus('error');
       return;
     }
+    // solution without backend, opens the user's mail app with pre-filled email
+    // const subject = contactForm.subject || `Portfolio Contact - ${contactForm.name}`;
+    // const body = `Name: ${contactForm.name}\nEmail: ${contactForm.email}\n\nMessage:\n${contactForm.message}`;
+    // const mailtoUrl = `mailto:${profile.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
 
-    const subject = contactForm.subject || `Portfolio Contact - ${contactForm.name}`;
-    const body = `Name: ${contactForm.name}\nEmail: ${contactForm.email}\n\nMessage:\n${contactForm.message}`;
-    const mailtoUrl = `mailto:${profile.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    // window.location.href = mailtoUrl;
 
-    window.location.href = mailtoUrl;
-    setContactStatus('success');
-    setContactForm({ name: '', email: '', subject: '', message: '' });
+    // solution with backend, sends email to me
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        name: contactForm.name,
+        email: contactForm.email,
+        message: contactForm.message,
+        submittedAt: new Date().toISOString(),
+        source: window.location.href,
+      }),
+    });
+
+    if (res.ok) {
+      setContactStatus('success');
+      setContactForm({ name: '', email: '', subject: '', message: '' });
+    } else {
+      alert('Failed to send message.');
+    }
   };
 
   return (
@@ -106,7 +120,8 @@ const ContactSection = ({ profile }: Props) => {
                 <p className="text-xs lg:text-sm text-rose-200 font-semibold">Please fill in your name, email and message.</p>
               ) : null}
               {contactStatus === 'success' ? (
-                <p className="text-xs lg:text-sm text-emerald-200 font-semibold">Mail app opened. Thanks for reaching out.</p>
+                // <p className="text-xs lg:text-sm text-emerald-200 font-semibold">Mail app opened. Thanks for reaching out.</p>
+                <p className="text-xs lg:text-sm text-emerald-200 font-semibold">Thanks for reaching out. I&apos;ll get back to you soon.</p>
               ) : null}
             </div>
           </form>
