@@ -3,8 +3,8 @@
 ### Clone Repository
 
 ```bash
-git clone https://github.com/portfolio-4
-cd portfolio-4
+git clone https://github.com/neon-forge-porfolio
+cd neon-forge-portfolio
 ```
 
 ### Install Dependencies
