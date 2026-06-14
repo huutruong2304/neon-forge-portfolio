@@ -25,14 +25,38 @@ Open http://localhost:3000 in your browser.
 
 ## ☁️ Deployment
 
-This project can be deployed on any platform that supports Next.js.
+### Docker + Nginx (VPS)
 
-Recommended platforms:
+Project includes production-ready Docker + Nginx config:
 
-- Vercel
-- Netlify
-- VPS (Docker)
-- Cloud Platforms (AWS, GCP, Azure)
+- `Dockerfile` (multi-stage build with Next.js standalone output)
+- `docker-compose.yml` (runs app + Nginx reverse proxy)
+- `nginx/conf.d/default.conf` (proxy traffic from port 80 to Next.js app)
+
+Run on server:
+
+```bash
+cp .env.example .env
+# update values in .env
+
+docker compose up -d --build
+```
+
+Check status/logs:
+
+```bash
+docker compose ps
+docker compose logs -f app
+docker compose logs -f nginx
+```
+
+Stop:
+
+```bash
+docker compose down
+```
+
+For SSL in production, put Cloudflare or Certbot in front of Nginx and add an HTTPS server block.
 
 ---
 

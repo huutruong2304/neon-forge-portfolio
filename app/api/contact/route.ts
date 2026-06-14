@@ -2,8 +2,6 @@
 import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
 
-const resend = new Resend(process.env.RESEND_API_KEY);
-
 export async function POST(req: Request) {
   try {
     const { name, email, message, submittedAt, source } = await req.json();
@@ -11,9 +9,15 @@ export async function POST(req: Request) {
     if (!name || !email || !message) {
       return NextResponse.json({ error: 'Missing required fields' }, { status: 400 });
     }
-    const { CONTACT_EMAIL, MAIL_FROM_NAME, MAIL_FROM_ADDRESS, OWNER_NAME, SITE_NAME, SITE_URL, ENABLE_AUTO_REPLY } = process.env;
+    const { RESEND_API_KEY, CONTACT_EMAIL, MAIL_FROM_NAME, MAIL_FROM_ADDRESS, OWNER_NAME, SITE_NAME, SITE_URL, ENABLE_AUTO_REPLY } = process.env;
 
-    const fromEmail = `${MAIL_FROM_NAME} <${MAIL_FROM_ADDRESS}>`;
+    if (!RESEND_API_KEY || !CONTACT_EMAIL || !MAIL_FROM_ADDRESS) {
+      return NextResponse.json({ error: 'Server email configuration is missing' }, { status: 500 });
+    }
+
+    const resend = new Resend(RESEND_API_KEY);
+
+    const fromEmail = `${MAIL_FROM_NAME ?? 'Portfolio'} <${MAIL_FROM_ADDRESS}>`;
 
     // Email gửi cho bạn
     await resend.emails.send({
