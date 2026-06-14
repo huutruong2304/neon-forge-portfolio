@@ -92,7 +92,7 @@ export default function App() {
         <SkillsSection skills={skills} />
         <ExperienceSection experiences={experiences} />
         <ProjectsSection projects={projects} />
-        <ContactSection profile={profile} socialLinks={socialLinks} />
+        <ContactSection />
         <AppFooter profile={profile} socialLinks={socialLinks} />
       </div>
 
