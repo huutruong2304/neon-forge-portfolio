@@ -20,7 +20,16 @@ export async function POST(req: Request) {
     }
 
     const { name, email, message, submittedAt, source } = validationResult.data;
-    const { RESEND_API_KEY, CONTACT_EMAIL, MAIL_FROM_NAME, MAIL_FROM_ADDRESS, OWNER_NAME, SITE_NAME, SITE_URL, ENABLE_AUTO_REPLY } = process.env;
+    const {
+      RESEND_API_KEY,
+      CONTACT_EMAIL,
+      MAIL_FROM_NAME,
+      MAIL_FROM_ADDRESS,
+      NEXT_PUBLIC_OWNER_NAME,
+      SITE_NAME,
+      NEXT_PUBLIC_SITE_URL,
+      ENABLE_AUTO_REPLY,
+    } = process.env;
 
     if (!RESEND_API_KEY || !CONTACT_EMAIL || !MAIL_FROM_ADDRESS) {
       return NextResponse.json({ error: 'Server email configuration is missing' }, { status: 500 });
@@ -28,7 +37,7 @@ export async function POST(req: Request) {
 
     const resend = new Resend(RESEND_API_KEY);
     const submittedAtValue = submittedAt ?? new Date().toISOString();
-    const sourceValue = source ?? SITE_URL ?? 'N/A';
+    const sourceValue = source ?? NEXT_PUBLIC_SITE_URL ?? 'N/A';
 
     const fromEmail = `${MAIL_FROM_NAME ?? 'Portfolio'} <${MAIL_FROM_ADDRESS}>`;
 
@@ -84,7 +93,7 @@ export async function POST(req: Request) {
             <strong>Website:</strong>
           </td>
           <td>
-            <a href="${SITE_URL}">
+            <a href="${NEXT_PUBLIC_SITE_URL}">
               ${SITE_NAME}
             </a>
           </td>
@@ -124,7 +133,7 @@ export async function POST(req: Request) {
 
           <p>
             Thank you for contacting me through
-            <a href="${SITE_URL}">
+            <a href="${NEXT_PUBLIC_SITE_URL}">
               ${SITE_NAME}
             </a>.
           </p>
@@ -141,7 +150,7 @@ export async function POST(req: Request) {
 
           <p>
             Best regards,<br />
-            ${OWNER_NAME}
+            ${NEXT_PUBLIC_OWNER_NAME}
           </p>
         </div>
       `,

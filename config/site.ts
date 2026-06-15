@@ -1,0 +1,20 @@
+export const siteConfig = {
+  name: process.env.NEXT_PUBLIC_SITE_NAME ?? 'Your Site Name',
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? 'https://your-site-url.com',
+  description: process.env.NEXT_PUBLIC_SITE_DESCRIPTION,
+  author: process.env.NEXT_PUBLIC_OWNER_NAME,
+  jobTitle: process.env.NEXT_PUBLIC_OWNER_JOB_TITLE,
+  keywords: [
+    'Truong Nguyen',
+    'Coding With Truong',
+    'Full Stack Developer',
+    'React Developer',
+    'Next.js Developer',
+    'TypeScript',
+    'Node.js',
+    'Frontend Developer',
+    'Portfolio',
+    'Software Engineer',
+    'Web Development',
+  ],
+};
