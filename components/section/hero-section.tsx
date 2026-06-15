@@ -4,6 +4,7 @@ import GlassCard from '@/components/shared/glass-card';
 import Reveal from '@/components/shared/reveal';
 import type { Highlight, Profile, SocialLinks } from './types';
 import Link from 'next/link';
+import { FloatingBadge } from '../shared/floating-badge';
 
 type Props = {
   profile: Profile;
@@ -55,7 +56,7 @@ const HeroSection = ({ profile, socialLinks, highlight }: Props) => {
         </div>
       </Reveal>
 
-      <Reveal delay={120} className="relative h-125 w-full mt-12 lg:mt-0 select-none">
+      <Reveal delay={120} className="relative h-125 w-full aspect-square mt-12 lg:mt-0 select-none perspective-distant">
         <Image
           src={profile.avatar || '/avatar.webp'}
           alt={`Avatar of ${profile.firstName + ' ' + profile.lastName}`}
@@ -65,29 +66,34 @@ const HeroSection = ({ profile, socialLinks, highlight }: Props) => {
           className="object-cover object-center rounded-4xl border border-white/10 shadow-2xl"
         />
 
-        <GlassCard className="absolute  top-6 xl:-right-8 -right-4 px-5 py-3 flex items-center gap-3 shadow-2xl z-20">
-          <span className="w-4 h-4 bg-green-400 rounded-full animate-pulse" />
-          <div className="flex flex-col">
-            <span className="text-xs lg:text-sm font-black tracking-wider text-white">AVAILABLE FOR HIRE</span>
-          </div>
-        </GlassCard>
+        <FloatingBadge
+          icon={<span className="w-4 h-4 bg-green-400 rounded-full animate-pulse" />}
+          text="AVAILABLE FOR HIRE"
+          className="top-6 xl:-right-8 -right-4"
+        />
 
         {highlight?.yearsOfExperience && (
-          <GlassCard className="absolute md:top-52 xl:-left-10 top-64 -left-4 px-5 py-3 flex items-center gap-3 shadow-2xl z-20 bg-white/15">
-            <div className="w-10 h-10 rounded-full bg-[#E1FF00] flex items-center justify-center text-[#113af1] shadow-lg shadow-[#E1FF00]/30">
-              <Star size={20} fill="currentColor" />
-            </div>
-            <div className="font-extrabold leading-tight text-sm lg:text-base tracking-wide text-white">{highlight.yearsOfExperience}+ YRS EXP</div>
-          </GlassCard>
+          <FloatingBadge
+            icon={
+              <div className="w-10 h-10 rounded-full bg-[#E1FF00] flex items-center justify-center text-[#113af1] shadow-lg shadow-[#E1FF00]/30">
+                <Star size={20} fill="currentColor" />
+              </div>
+            }
+            text={`${highlight.yearsOfExperience}+ YRS EXP`}
+            className="md:top-52 xl:-left-10 top-64 -left-4"
+          />
         )}
 
         {highlight?.awards && (
-          <GlassCard className="absolute bottom-10 xl:-right-8 -right-4  px-5 py-3 flex items-center gap-3 shadow-2xl z-20 bg-white/15">
-            <div className="w-10 h-10 rounded-full bg-cyan-400 flex items-center justify-center text-white shadow-lg shadow-cyan-400/30">
-              <Award size={18} />
-            </div>
-            <div className="font-extrabold leading-tight text-sm lg:text-base tracking-wide text-white">{highlight.awards}</div>
-          </GlassCard>
+          <FloatingBadge
+            icon={
+              <div className="w-10 h-10 rounded-full bg-cyan-400 flex items-center justify-center text-white shadow-lg shadow-cyan-400/30">
+                <Award size={18} />
+              </div>
+            }
+            text={highlight.awards}
+            className="absolute bottom-10 xl:-right-8 -right-4"
+          />
         )}
       </Reveal>
     </section>
