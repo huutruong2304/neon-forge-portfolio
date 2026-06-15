@@ -19,7 +19,7 @@ const HeroSection = ({ profile, socialLinks, highlight }: Props) => {
           HELLO, I&apos;M {profile.lastName} <span className="text-sm animate-bounce">👋</span>
         </div>
 
-        <h1 className="text-5xl sm:text-7xl lg:text-[6.5rem] font-black leading-[0.85] tracking-tighter mb-4 uppercase">
+        <h1 className="text-5xl sm:text-7xl lg:text-[6.5rem] font-black leading-[0.85] tracking-tighter mb-4 uppercase transition-all duration-500 hover:scale-[1.03] hover:-rotate-1 origin-left hover:text-[#E1FF00] hover:drop-shadow-[0_0_24px_rgba(225,255,0,0.45)]">
           <span className="relative">
             {profile.title}
             <svg className="absolute -bottom-4 left-0 w-full h-6 text-[#E1FF00]" viewBox="0 0 300 20" fill="none" xmlns="http://www.w3.org/2000/svg">
