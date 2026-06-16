@@ -1,5 +1,4 @@
 import { ArrowUpRight } from 'lucide-react';
-import React from 'react';
 
 type Props = {
   socialLinks: {

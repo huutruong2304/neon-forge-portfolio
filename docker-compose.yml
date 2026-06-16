@@ -5,6 +5,11 @@ services:
       dockerfile: Dockerfile
       args:
         NEXT_PUBLIC_SITE_NAME: ${NEXT_PUBLIC_SITE_NAME}
+        NEXT_PUBLIC_SITE_URL: ${NEXT_PUBLIC_SITE_URL}
+        NEXT_PUBLIC_SITE_DESCRIPTION: ${NEXT_PUBLIC_SITE_DESCRIPTION}
+        NEXT_PUBLIC_OWNER_NAME: ${NEXT_PUBLIC_OWNER_NAME}
+        NEXT_PUBLIC_JOB_TITLE: ${NEXT_PUBLIC_JOB_TITLE}
+        NEXT_PUBLIC_LOGO_TEXT: ${NEXT_PUBLIC_LOGO_TEXT}
     container_name: portfolio_app
     restart: unless-stopped
     env_file:
