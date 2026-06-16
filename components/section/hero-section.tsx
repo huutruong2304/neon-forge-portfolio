@@ -1,6 +1,5 @@
 import Image from 'next/image';
 import { Award, Code, Star } from 'lucide-react';
-import GlassCard from '@/components/shared/glass-card';
 import Reveal from '@/components/shared/reveal';
 import type { Highlight, Profile, SocialLinks } from './types';
 import Link from 'next/link';

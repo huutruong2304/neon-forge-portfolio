@@ -26,7 +26,7 @@ export async function POST(req: Request) {
       MAIL_FROM_NAME,
       MAIL_FROM_ADDRESS,
       NEXT_PUBLIC_OWNER_NAME,
-      SITE_NAME,
+      NEXT_PUBLIC_SITE_NAME,
       NEXT_PUBLIC_SITE_URL,
       ENABLE_AUTO_REPLY,
     } = process.env;
@@ -46,10 +46,10 @@ export async function POST(req: Request) {
       from: fromEmail,
       to: CONTACT_EMAIL!,
       replyTo: email,
-      subject: `🚀 New ${SITE_NAME} Inquiry - ${name}`,
+      subject: `🚀 New ${NEXT_PUBLIC_SITE_NAME} Inquiry - ${name}`,
       html: `
     <div style="font-family: Arial, sans-serif; line-height: 1.6; max-width: 600px;">
-      <h2>🚀 New ${SITE_NAME} Inquiry</h2>
+      <h2>🚀 New ${NEXT_PUBLIC_SITE_NAME} Inquiry</h2>
 
       <table style="border-collapse: collapse;">
         <tr>
@@ -94,7 +94,7 @@ export async function POST(req: Request) {
           </td>
           <td>
             <a href="${NEXT_PUBLIC_SITE_URL}">
-              ${SITE_NAME}
+              ${NEXT_PUBLIC_SITE_NAME}
             </a>
           </td>
         </tr>
@@ -124,7 +124,7 @@ export async function POST(req: Request) {
         await resend.emails.send({
           from: fromEmail,
           to: email,
-          subject: `Thanks for reaching out to ${SITE_NAME} 👋`,
+          subject: `Thanks for reaching out to ${NEXT_PUBLIC_SITE_NAME} 👋`,
           html: `
         <div style="font-family: Arial, sans-serif; line-height: 1.6; max-width: 600px;">
           <h2>Thanks for reaching out 👋</h2>
@@ -134,7 +134,7 @@ export async function POST(req: Request) {
           <p>
             Thank you for contacting me through
             <a href="${NEXT_PUBLIC_SITE_URL}">
-              ${SITE_NAME}
+              ${NEXT_PUBLIC_SITE_NAME}
             </a>.
           </p>
 
