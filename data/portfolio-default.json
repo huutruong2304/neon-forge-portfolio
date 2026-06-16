@@ -5,16 +5,16 @@
         "title": "Full Stack Developer",
         "introduction": "Full Stack Developer with 5+ years of experience building scalable web products with React, Next.js, TypeScript, API integrations and backend services using NestJS.",
         "bio": "Full Stack Developer with 5+ years of experience building scalable web products with React, Next.js, TypeScript, API integrations and backend services using NestJS.",
-        "dateOfBirth": "1998-11-12",
+        "dateOfBirth": "1999-11-12",
         "location": "Ho Chi Minh City, Vietnam",
         "email": "vietnam.nguyen.dev@gmail.com",
         "phone": "0905123456",
         "avatar": "https://placehold.co/900x1100/png?text=NGUYEN+VIET+NAM",
         "education": "University of Information Technology - VNU-HCM"
     },
-    "highlights": {
+    "highlight": {
         "yearsOfExperience": 5,
-        "awards": "Top 100 Best Performer 2026"
+        "awards": "Top Performer Award at Tech Solutions Inc. 2023"
     },
     "socialLinks": {
         "github": "https://github.com/nguyenvietnamdev",
@@ -92,47 +92,47 @@
     ],
     "experiences": [
         {
-            "company": "FPT Software",
+            "company": "Tech Solutions Inc.",
             "position": "Full Stack Developer",
             "startDate": "2022/02",
             "endDate": "Present",
             "description": [
-                "Developed and maintained enterprise web applications using ReactJS, NextJS, TypeScript and NestJS.",
-                "Worked in Agile/Scrum environments and participated in daily stand-up meetings.",
-                "Analyzed requirements, implemented new features, fixed bugs and optimized system performance.",
-                "Collaborated with team members and supported troubleshooting activities."
+                "Designed, developed and maintained scalable web applications using ReactJS, Next.js, TypeScript and Node.js.",
+                "Collaborated with cross-functional teams to deliver new features and improve existing products.",
+                "Integrated RESTful APIs, optimized application performance and enhanced user experience.",
+                "Participated in Agile development processes, code reviews and technical discussions."
             ]
         },
         {
-            "company": "S3 Corp",
+            "company": "Digital Innovation Studio",
             "position": "Front End Developer",
             "startDate": "2020/06",
             "endDate": "2022/02",
             "description": [
-                "Developed frontend features for device management and hardware control applications.",
-                "Gathered and clarified requirements directly with customers.",
-                "Fixed UI and system bugs to improve stability and user experience.",
-                "Participated in daily stand-up meetings with customers."
+                "Built responsive and interactive user interfaces using ReactJS, JavaScript and modern frontend technologies.",
+                "Worked closely with designers and backend developers to implement product requirements.",
+                "Maintained and improved application quality through bug fixes and performance optimizations.",
+                "Contributed to feature planning, estimation and sprint activities in an Agile environment."
             ]
         },
         {
-            "company": "Freelancer",
+            "company": "Freelance Projects",
             "position": "Full Stack Developer",
             "description": [
-                "Designed and developed full stack systems for education, e-commerce and mobile applications.",
-                "Gathered and analyzed client requirements.",
-                "Built responsive user interfaces, backend features and API integrations.",
-                "Fixed bugs and optimized application performance."
+                "Delivered custom web and mobile solutions for clients across multiple industries.",
+                "Gathered requirements, designed technical solutions and implemented end-to-end features.",
+                "Developed frontend interfaces, backend services and database integrations.",
+                "Provided ongoing maintenance, troubleshooting and performance improvements."
             ]
         }
     ],
     "projects": [
         {
-            "name": "dethivip.com",
+            "name": "LearnHub Platform",
             "source": "freelance",
             "domain": "Education",
-            "thumbnail": "https://placehold.co/1200x800/png?text=dethivip.com",
-            "description": "An educational platform providing high school graduation exam materials, mock exams and learning resources for students preparing for the Vietnamese National High School Exam (THPT).",
+            "thumbnail": "https://placehold.co/1200x800/png?text=LearnHub+Platform",
+            "description": "An online learning platform that provides courses, mock exams and study materials through a modern web experience.",
             "techStack": [
                 "Next.js",
                 "TypeScript",
@@ -140,35 +140,34 @@
                 "PostgreSQL"
             ],
             "role": "Full Stack Developer",
-            "demoUrl": "https://dethivip.com",
+            "demoUrl": "",
             "githubUrl": "",
             "featured": true
         },
         {
-            "name": "anhphibantao.com",
+            "name": "ShopSphere",
             "source": "freelance",
             "domain": "E-commerce",
-            "thumbnail": "https://placehold.co/1200x800/png?text=anhphibantao.com",
-            "description": "An e-commerce website specializing in Apple products, providing a smooth shopping experience and administration dashboard.",
+            "thumbnail": "https://placehold.co/1200x800/png?text=ShopSphere",
+            "description": "A modern e-commerce platform with product catalog management, shopping cart functionality and order tracking.",
             "techStack": [
                 "NextJS",
                 "ReactJS",
                 "TypeScript",
                 "TailwindCSS",
-                "NestJS",
-                "ChakraUI"
+                "NestJS"
             ],
             "role": "Full Stack Developer",
-            "demoUrl": "https://anhphibantao.com",
+            "demoUrl": "",
             "githubUrl": "",
             "featured": true
         },
         {
-            "name": "EV Charging Platform",
+            "name": "ChargeFlow",
             "source": "company",
             "domain": "Electric Vehicles",
-            "thumbnail": "https://placehold.co/1200x800/png?text=EV+Charging+Platform",
-            "description": "A platform that helps users locate charging stations, schedule charging appointments and complete payments.",
+            "thumbnail": "https://placehold.co/1200x800/png?text=ChargeFlow",
+            "description": "A smart EV charging management platform that allows users to locate charging stations, schedule charging sessions and manage payments.",
             "techStack": [
                 "ReactJS",
                 "NestJS",
@@ -182,11 +181,11 @@
             "featured": true
         },
         {
-            "name": "SG Smart Attendance",
+            "name": "WorkTrack Mobile",
             "source": "freelance",
             "domain": "Workforce Management",
-            "thumbnail": "https://placehold.co/1200x800/png?text=SG+Smart+Attendance",
-            "description": "A mobile attendance management application that enables employees to check in/out and managers to monitor attendance records.",
+            "thumbnail": "https://placehold.co/1200x800/png?text=WorkTrack+Mobile",
+            "description": "A mobile workforce management application that enables employee attendance tracking, scheduling and performance monitoring.",
             "techStack": [
                 "React Native",
                 "Redux Toolkit",
@@ -197,24 +196,6 @@
             "demoUrl": "",
             "githubUrl": "",
             "featured": true
-        }
-    ],
-    "services": [],
-    "testimonials": [],
-    "certificates": [
-        {
-            "name": "Top 100 FSOFT.GAM 2023 Best Performer",
-            "issuer": "FPT Software",
-            "issueDate": "2023",
-            "credentialUrl": ""
-        }
-    ],
-    "education": [
-        {
-            "school": "University of Science and Technology - The University of Danang",
-            "degree": "Major: Information Technology",
-            "startDate": "2016",
-            "endDate": "2020"
         }
     ]
 }

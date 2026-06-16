@@ -10,7 +10,7 @@ import SkillsSection from '../components/section/skills-section';
 import type { Experience, Project, Profile, SkillGroup, SocialLinks, Highlight } from '../components/section/types';
 import AppFooter from '@/components/layout/app-footer';
 import ScrollToTopButton from '@/components/shared/scroll-to-top-button';
-import portfolio from '@/data/portfolio.json';
+import portfolio from '@/data/portfolio-default.json';
 
 type SkillType = 'frontend' | 'ui-styling' | 'backend-api';
 
