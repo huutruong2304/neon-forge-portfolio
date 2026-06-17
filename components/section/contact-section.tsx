@@ -6,6 +6,7 @@ import { contactFormSchema } from '@/lib/schemas/contact';
 import GlassCard from '@/components/shared/glass-card';
 import Reveal from '@/components/shared/reveal';
 import SectionHeading from './section-heading';
+import { Turnstile } from '@marsidev/react-turnstile';
 
 type ContactFormState = {
   name: string;
@@ -26,6 +27,7 @@ const ContactSection = () => {
   const [contactStatus, setContactStatus] = useState<'idle' | 'error' | 'success'>('idle');
   const [validationErrors, setValidationErrors] = useState<ValidationErrors>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [token, setToken] = useState('');
 
   const handleChange = (field: keyof ContactFormState, value: string) => {
     setContactForm((prev) => ({ ...prev, [field]: value }));
@@ -79,6 +81,7 @@ const ContactSection = () => {
         message: contactForm.message,
         submittedAt: new Date().toISOString(),
         source: window.location.href,
+        turnstileToken: token,
       }),
     });
 
@@ -163,6 +166,16 @@ const ContactSection = () => {
               />
               {validationErrors.message && <p className="text-xs lg:text-sm text-red-300 mt-1 font-semibold">{validationErrors.message}</p>}
             </div>
+
+            <Turnstile
+              siteKey={process.env.NEXT_PUBLIC_TURNSTILE_SITE_KEY!}
+              onSuccess={(token) => {
+                console.log('Turnstile token:', token);
+                setToken(token);
+              }}
+              onExpire={() => setToken('')}
+              onError={() => setToken('')}
+            />
 
             <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3">
               <button

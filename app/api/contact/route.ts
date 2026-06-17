@@ -3,9 +3,47 @@ import { Resend } from 'resend';
 import { NextResponse } from 'next/server';
 import { contactFormSchema } from '@/lib/schemas/contact';
 
+async function verifyTurnstile(token: string, ip?: string) {
+  const formData = new FormData();
+
+  formData.append('secret', process.env.TURNSTILE_SECRET_KEY!);
+  formData.append('response', token);
+
+  if (ip) {
+    formData.append('remoteip', ip);
+  }
+
+  const res = await fetch('https://challenges.cloudflare.com/turnstile/v0/siteverify', {
+    method: 'POST',
+    body: formData,
+  });
+
+  return res.json();
+}
+
 export async function POST(req: Request) {
   try {
     const body = await req.json();
+    const isTurnstileEnabled = process.env.NEXT_PUBLIC_ENABLE_TURNSTILE !== 'false';
+
+    if (isTurnstileEnabled) {
+      const token = body.turnstileToken;
+
+      if (!token) {
+        return NextResponse.json({ message: 'Turnstile token is required' }, { status: 400 });
+      }
+
+      if (!process.env.TURNSTILE_SECRET_KEY) {
+        return NextResponse.json({ message: 'TURNSTILE_SECRET_KEY is missing' }, { status: 500 });
+      }
+
+      const ip = req.headers.get('cf-connecting-ip') || req.headers.get('x-forwarded-for') || undefined;
+      const result = await verifyTurnstile(token, ip);
+
+      if (!result.success) {
+        return NextResponse.json({ message: 'Turnstile verification failed' }, { status: 403 });
+      }
+    }
 
     // Validate request body with Zod
     const validationResult = contactFormSchema.safeParse(body);
