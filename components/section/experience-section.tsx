@@ -10,7 +10,7 @@ type Props = {
 
 const ExperienceCard = ({ experience }: { experience: Experience }) => {
   return (
-    <GlassCard className="p-6 lg:p-8 flex flex-col justify-between rounded-4xl">
+    <GlassCard className="p-6 lg:p-8 w-full flex flex-col justify-between rounded-4xl">
       <div>
         <div className="flex justify-between items-start mb-4">
           <div>
