@@ -114,6 +114,13 @@ const ContactSection = () => {
 
       <Reveal delay={100}>
         <GlassCard className="p-6 md:p-8 rounded-4xl">
+          <div className="mb-6">
+            <h3 className="text-2xl md:text-3xl font-extrabold text-white">Let&apos;s Build Something Together</h3>
+            <p className="mt-3 max-w-2xl text-sm md:text-base leading-relaxed text-white/70">
+              I&apos;m available for freelance projects, remote opportunities, and collaborations.
+            </p>
+          </div>
+
           <form onSubmit={handleSubmit} className="space-y-4">
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div>
